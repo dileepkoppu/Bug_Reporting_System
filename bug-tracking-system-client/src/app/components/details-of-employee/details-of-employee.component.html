@@ -1,0 +1,39 @@
+<section class="text-gray-700 body-font overflow-hidden">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="lg:w-4/5 mx-auto flex flex-wrap">
+        <div class="w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+            <!-- <h2 class="text-sm title-font text-gray-500 tracking-widest">EMPLOYEE</h2> -->
+            <!-- <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">employee.username</h1> -->
+            <a [routerLink]="['/employees-list']"class="hover:text-blue-500">Go back to employees</a>
+            <div class="py-5 border-t border-gray-200">
+                <h1 class="text-4xl text-gray-800">Details Of Employee</h1>
+            </div>
+            <p class="leading-relaxed mb-4">{{employee?.role_ids}} </p>
+            <div class="flex border-t border-gray-300 py-2">
+                <span class="text-gray-500">username</span>
+                <span class="ml-auto text-gray-900"> {{employee?.username}} </span>
+            </div>
+            <div class="flex border-t border-gray-300 py-2">
+                <span class="text-gray-500">Email</span>
+                <span class="ml-auto text-gray-900"> {{employee?.email}} </span>
+            </div>
+            <div class="flex border-t border-b mb-6 border-gray-300 py-2">
+                <span class="text-gray-500">Phone Number</span>
+                <span class="ml-auto text-gray-900">{{employee?.mobile}} </span>
+            </div>
+            <div class="flex flex-row-reverse space-x-4 space-x-reverse">
+                <!-- <span class="text-gray-500">Phone Number</span> -->
+                <!-- <span class="ml-auto text-gray-900">phone_number </span> -->
+            <a [routerLink]="['/employee-detail/',employee?._id,'update']">
+                <button type='submit' class=" text-white bg-green-500 hover:bg-green-600 px-3 py-2 rounded-md">
+                    update
+                </button>
+            </a>
+                <button type='submit' class=" text-white bg-red-500 hover:bg-red-600 px-3 py-2 rounded-md"(click)="deleteEmployee(employee._id)">
+                    delete
+                </button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>

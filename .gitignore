@@ -1,0 +1,8 @@
+/node_modules/
+/.env
+bug_tracking_system_server/id_rsa_priv.pem
+bug_tracking_system_server/id_rsa_pub.pem
+bug_tracking_system_server/.env
+
+
+bug-tracking-system-client/node_modules

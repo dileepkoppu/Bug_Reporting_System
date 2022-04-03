@@ -1,0 +1,35 @@
+<header class="text-gray-700 body-font">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a [routerLink]="['']" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+        <img src="../../../assets/voidLogo.png" alt="voidLogo" width="70%">
+      </a>
+      <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+        <div *ngIf="loggedIn; else elseBlock">
+
+            <a *ngIf="role"[routerLink]="['project']" class="mr-5 hover:text-gray-900">Project</a>
+            <a *ngIf="role"[routerLink]="['employees-list']" class="mr-5 hover:text-gray-900">Employee</a>
+            <a [routerLink]="['bugreport-list']" class="mr-5 hover:text-gray-900">Bug Report</a>
+  
+            Logged in as:<strong class="mr-5 text-xl pl-2" >{{username}}</strong>
+          <button>
+            <a (click)="logout()" class="ml-3 inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base mt-4 md:mt-0">
+              Logout
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+            </a>
+          </button>
+        </div>
+        <ng-template #elseBlock>
+            <a [routerLink]="['login']" class="inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base mt-4 md:mt-0">
+                Login
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+            </a>
+        </ng-template>
+
+          
+      </nav>
+    </div>
+</header>

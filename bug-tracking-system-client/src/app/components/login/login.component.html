@@ -1,0 +1,21 @@
+<app-alert-message [alert]='alert' [success]='success' [message]="message"></app-alert-message>
+<div class="max-w-lg mx-auto">
+
+    <div class="py-5 border-b border-gray-200">
+        <!-- <a class="hover:text-blue-500" href="/signup/">Don't have an account?</a> -->
+    </div>
+
+    <form  class="mt-5" [formGroup]="loginForm" (ngSubmit)='onSumbit()' >
+
+<div id="div_id_email" class="mb-3"> <label for="id_email" class="block text-gray-700 text-sm font-bold mb-2">
+            email<span class="asteriskField">*</span> </label> <input type="email" name="email" autofocus autocapitalize="none" autocomplete="email" maxlength="150" class="textinput border-gray-300 focus:outline-none bg-white leading-normal w-full block px-4 text-gray-700 rounded-lg appearance-none py-2 border"  id="id_email" formControlName="email" required> </div> <div id="div_id_password" class="mb-3"> <label for="id_password" class="block text-gray-700 text-sm font-bold mb-2">
+            Password<span class="asteriskField">*</span> </label> <input type="password" name="password" autocomplete="current-password" class="passwordinput border-gray-300 focus:outline-none bg-white leading-normal w-full block px-4 text-gray-700 rounded-lg appearance-none py-2 border" required id="id_password" formControlName="password"> </div>
+
+        <button type='submit'  [disabled]="!loginForm.valid" class="w-full text-white bg-blue-600 disabled:opacity-70 px-3 py-2 rounded-md">
+            Login
+        </button>
+    </form>
+    <div class="py-5 border-t border-gray-200 mt-5">
+        <a [routerLink]="['/resetpassword']"class="hover:text-blue-500" >Forgot password?</a>
+    </div>
+</div>

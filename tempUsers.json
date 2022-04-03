@@ -1,0 +1,49 @@
+[{
+    "username": "Dileep",
+    "email": "anjanidileepkoppu@gmail.com",
+    "role_ids": "superuser",
+    "firstName": "Koppu",
+    "lastName": "Dileep",
+    "mobile": "9381522269",
+    "gender": "male",
+    "dob":"1999-12-16T00:00:00Z",
+    "parent_name": "Janardhana rao",
+    "parent_contact_no": "0000000000",
+    "address": {
+      "city": "Vijayawada",
+      "pincode": "521183",
+      "state": "Andhra Pradesh"
+    },
+    "is_active": true,
+    "aadhar_number": "000000000012",
+    "salt": "2a5d17efe2f074663392edb22c39144128af3029c83feb527642c2a4362715d0",
+    "hash": "115f81d209dd608f10a2884a3891c6b14b56c7aed05cd583537969bf8b5c6f403cc7c523e167bb41ade85f6dff81588b98a80f0e2ae303de47bc6fbd7bd3b16b",
+    "created_by": "sairam",
+    "id": "EMP002",
+    "created_date":"2021-07-29T17:13:21.676Z",
+    "__v": 0
+  },{
+    "username": "manju",
+    "email": "manju@gmail.com",
+    "role_ids": "admin",
+    "firstName": "manju",
+    "lastName": "sai",
+    "mobile": "0981522269",
+    "gender": "male",
+    "dob":"2021-07-30T00:00:00Z",
+    "parent_name": "hari",
+    "parent_contact_no": "0000000000",
+    "address": {
+      "city": "Vijayawada",
+      "pincode": "521181",
+      "state": "Andhra Pradesh"
+    },
+    "is_active": true,
+    "aadhar_number": "000000000012",
+    "salt": "360425e68e052064a76b73396cfa3b51b7a071222fbe046050efb06c91ff4c46",
+    "hash": "8d4688e11be934f3687a30d844383d68c931046b7a6d2a3feecdef187e2b6821b855aa5bd2858baa4fac53e917900589b0b41e28f9d5e51bd9e792b4279b73a6",
+    "created_by": "Dileep",
+    "id": "EMP001",
+    "created_date":"2021-07-29T17:15:13.670Z",
+    "__v": 0
+  }]

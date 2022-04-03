@@ -1,0 +1,75 @@
+<section class="text-gray-700 body-font overflow-hidden">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="lg:w-4/5 mx-auto flex flex-wrap">
+        <div class="w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+            <!-- <h2 class="text-sm title-font text-gray-500 tracking-widest">EMPLOYEE</h2> -->
+            <!-- <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">employee.username</h1> -->
+            <a [routerLink]="['/bugreport-list']"class="hover:text-blue-500" >Go back to Bug Reports</a>
+            <div class="py-5 border-t border-gray-200">
+                <h1 class="text-4xl text-gray-800">Details Of Bug Report</h1>
+            </div>
+            <p class="leading-relaxed mb-4">{{report.title}} </p>
+            <div class="flex border-t border-gray-300 py-2">
+                <span class="text-gray-500">title</span>
+                <span class="ml-auto text-gray-900"> {{report.title}} </span>
+            </div>
+            <div class="flex border-t border-gray-300 py-2">
+                <span class="text-gray-500">description</span>
+                <span class="ml-auto text-gray-900 w-3/5"> {{report.description}} </span>
+            </div>
+            <div class="flex border-t border-gray-300 py-2">
+                <span class="text-gray-500">Project Name</span>
+                <span class="ml-auto text-gray-900 "> {{report.projectName}} </span>
+            </div>
+            <div class="flex border-t border-gray-300 py-2">
+                <span class="text-gray-500">Developer Name</span>
+                <span class="ml-auto text-gray-900"> {{report.developerName}} </span>
+            </div>
+            <div class="flex border-t border-gray-300 py-2">
+                <span class="text-gray-500">tester Name</span>
+                <span class="ml-auto text-gray-900">{{report.testerName}} </span>
+            </div>
+            <div class="flex border-t border-gray-300 py-2">
+                <span class="text-gray-500">Details</span>
+                <span class="ml-auto text-gray-900">Get details <a class="text-blue-500" href={{base+report.details}} target="_blank">click here</a> </span>
+            </div>
+            <div class="flex border-t border-gray-300 py-2">
+                <span class="text-gray-500">progress</span>
+                <span class="ml-auto text-gray-900">{{report.status}} </span>
+            </div>
+            <div class="flex border-t border-b mb-6 border-gray-300 py-2">
+                <span class="text-gray-500">priority</span>
+                <span class="ml-auto text-gray-900">{{report.priority}} </span>
+            </div>
+            <div class="flex flex-row-reverse space-x-4 space-x-reverse">
+                <a [routerLink]="['/bugreport-detail',report._id,'update']">
+                <button type='submit' class=" text-white bg-green-500 hover:bg-green-600 px-3 py-2 rounded-md  ">
+                    update
+                </button>
+            </a>
+                <button type='submit'(click)="deleteBugreport(report._id)" class=" text-white bg-red-500 hover:bg-red-600 px-3 py-2 rounded-md  ">
+                    delete
+                </button>
+            </div>
+
+            <div class=" border-gray-800 mt-20 p-5 bg-gray-200 rounded-lg" >
+                <form [formGroup]="commentForm" class="mb-10">
+                    <div class="flex w-full mb-4 ">
+                    <input type="text" name="comment"  class="textinput  px-4 block w-full  focus:outline-none border text-gray-700 py-2 leading-normal bg-white rounded-lg border-gray-300 appearance-none" id="id_description" formControlName="comment">
+                    <button type='submit' (click)="onSubmit()"class=" text-white bg-green-500 disabled:opacity-50 px-3 py-2 ml-2 rounded-md" [disabled]="!commentForm.valid">
+                        post
+                    </button>
+                </div>
+                </form>
+                <div class="flex border mb-3 border-gray-400 py-1 rounded-lg" *ngFor="let disscusion of report.discussions.reverse()">
+                    <span class="text-gray-900 p-2">{{disscusion.comment}}</span>
+                    <p class="ml-auto text-gray-900 text-xl pt-10 px-3 py-2">
+                       <small class="px-2">{{disscusion.username}}</small> 
+                       <small>{{disscusion.time | date:'short'}}</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+      </div>
+</div>
+</section>

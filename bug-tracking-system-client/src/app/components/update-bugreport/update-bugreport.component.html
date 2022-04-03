@@ -1,0 +1,78 @@
+<app-alert-message [alert]='alert' [success]='success' [message]="message"></app-alert-message>
+
+<div class="max-w-lg mx-auto">
+    <a [routerLink]="['/bugreport-list']"class="hover:text-blue-500" >Go back to Bug Reports</a>
+    <div class="py-5 border-t border-gray-200">
+        <h1 class="text-4xl text-gray-800">Update Bug Report</h1>
+    </div>
+    <form [formGroup]="updateBugreportForm" class="mt-5" (ngSubmit)="updateBugreport()" >
+<div id="div_id_Title" class="mb-3"> <label for="id_Title" class="block text-gray-700 text-sm font-bold mb-2">
+            Title<span class="asteriskField">*</span> </label> <input type="text" name="title" maxlength="150" class="textinput px-4 block w-full focus:outline-none border text-gray-700 py-2 leading-normal bg-white rounded-lg border-gray-300 appearance-none" required id="id_Title" formControlName="title"> </div>
+            <div id="div_id_description" class="mb-3"> <label for="id_description" class="block text-gray-700 text-sm font-bold mb-2">
+                description<span class="asteriskField">*</span> </label> <input type="text" name="description"  class="textinput px-4 block w-full focus:outline-none border text-gray-700 py-2 leading-normal bg-white rounded-lg border-gray-300 appearance-none" required id="id_description" formControlName="description"> </div>
+                <div id="div_id_projectName" class="mb-3"> <label for="id_projectName" class="block text-gray-700 text-sm font-bold mb-2">
+                    projectName<span class="asteriskField">*</span> </label> <input type="text" name="projectName" maxlength="150" class="textinput px-4 block w-full focus:outline-none border text-gray-700 py-2 leading-normal bg-white rounded-lg border-gray-300 appearance-none" required id="id_projectName" formControlName="projectName"> </div>
+                
+                <div *ngIf="role==='superuser'||role==='admin'" id="div_id_TesterName" class="mb-3">
+                    <label for="id_TesterName" class="block text-gray-700 text-sm font-bold mb-2">
+                    TesterName<span class="asteriskField">*</span>
+                </label>
+                <div class="mb-3">
+                    <div class="relative">
+                <select class="bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal text-gray-700" name="TesterName" formControlName="testerName" > 
+                    <option value="" >---------</option> 
+                    <option *ngFor='let tester of testerlist' [ngValue]="tester.username" >{{tester.username}}</option> </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"> <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg> </div>
+                </div> </div></div>
+            
+            <div *ngIf="role!=='developer'"  id="div_id_developerName" class="mb-3">
+                <label for="id_developerName" class="block text-gray-700 text-sm font-bold mb-2">
+                developerName<span class="asteriskField">*</span>
+            </label>
+            <div class="mb-3">
+                <div class="relative">
+            <select class="bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal text-gray-700" name="developerName" formControlName="developerName" > 
+                <option value="" >---------</option> 
+                <option *ngFor='let developer of developerlist' [ngValue]="developer.username" >{{developer.username}}</option> </select>
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"> <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg> </div>
+            </div> </div></div>
+
+
+
+            <!-- <div id="div_id_Details" class="mb-3"> <label for="id_Details" class="block text-gray-700 text-sm font-bold mb-2">
+                Details<span class="asteriskField">*</span> </label> <input type="file" name="details" maxlength="20" accept="audio/*,video/*,image/*,text/*" (change)="file($event)" class="textinput px-4 block w-full focus:outline-none border text-gray-700 py-2 leading-normal bg-white rounded-lg border-gray-300 appearance-none" required id="id_Details"> 
+                <h1><small>* file size must less than 5 Mb</small></h1>
+                <small class="md:text-center ">* file extension must be JPEG, JPG, PNG, PDF, DOC, MP4, MP3</small>
+            </div>-->
+                
+            <div id="div_id_priority" class="mb-3"> <label for="id_priority" class="block text-gray-700 text-sm font-bold mb-2"> 
+                    priority<span class="asteriskField">*</span> </label> <div class="mb-3"> <div class="relative">
+                <select class="bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal text-gray-700" name="priority"formControlName="priority" > <option value="" >---------</option> <option value="Low" >Low</option> <option value="High" >High</option> <option value="Very High" >Very High</option> </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"> <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg> </div>
+                </div>
+                </div> </div> 
+
+                <div id="div_id_status" class="mb-3"> <label for="id_status" class="block text-gray-700 text-sm font-bold mb-2">
+                    status<span class="asteriskField">*</span> </label> <div class="mb-3"> <div class="relative">
+                <select class="bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal text-gray-700" name="status"formControlName="status" > <option value="" >---------</option> <option value="In Progress" >In Progress</option> <option value="Fixed" >Fixed</option> <option value="Completed" >Completed</option> </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"> <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg> </div>
+                </div>
+                </div> </div> 
+                
+                
+                <button type='submit' class="w-full text-white bg-blue-600 disabled:opacity-50 px-3 py-2 rounded-md" [disabled]="!updateBugreportForm.valid">
+                    Submit
+        </button>
+    </form>
+</div>
+
+
+
+<!-- <p>Form value: {{ updateBugreportForm.value | json }}</p> -->
+
+<!-- <div id="div_id_Progress" class="mb-3"> <label for="id_Progress" class="block text-gray-700 text-sm font-bold mb-2">
+Progress<span class="asteriskField">*</span> </label> <div class="mb-3"> <div class="relative">
+<select class="bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal text-gray-700" name="Progress" > <option value="" >---------</option> <option value="Inprogress" >Inprogress</option> <option value="Completed" >Completed</option> <option value="others" >others</option> </select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"> <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg> </div>
+</div>
+</div> </div>  -->

@@ -1,0 +1,43 @@
+.form-control.ng-touched.ng-invalid{
+    border: 2px solid red;
+}
+
+.form-control.ng-touched.ng-valid{
+    border: 2px solid green;
+}
+.error{
+   
+   color: red;
+}
+.form-control{
+        width:50%;
+       border: 1px solid lightblue;
+}
+.form-group{
+    text-align: left;
+    margin-top: 5%;
+}
+
+.childCommentBox{
+    margin-left: 7%;
+    font-size: 30px;
+    background-color:white;
+    margin: 5%;
+   
+}
+.user{
+       font-size: 20px;
+       margin-left: 5%;
+}
+.comment{
+    margin-left: 10%;
+}
+.comments{
+    margin-left: 14%;
+    background-color:wheat;
+    border-radius: 7px;
+    height: 6%;
+}
+.date{
+    font-size: 20px;
+}
