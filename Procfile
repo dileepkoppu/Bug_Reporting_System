@@ -1,2 +1,2 @@
-release: bash ./release.sh
-web: npm start
+
+web: bash ./release.sh
